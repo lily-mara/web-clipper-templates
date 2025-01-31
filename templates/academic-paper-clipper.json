@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Academic Paper",
+	"behavior": "create",
+	"noteContentFormat": "{{content}}\n\n---\n\n[Full Text PDF]({{meta:name:citation_pdf_url}})",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "{{author|split:\\\", \\\"|wikilink|join}},{{meta:name:citation_author|wikilink}}",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{meta:name:citation_date}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "description",
+			"value": "{{description}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings,to-read/article,article",
+			"type": "multitext"
+		},
+		{
+			"name": "doi",
+			"value": "{{meta:name:citation_doi}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"meta:property:og:type=Article"
+	],
+	"noteNameFormat": "{{meta:name:citation_author}} - {{title}}",
+	"path": "Clippings"
+}
