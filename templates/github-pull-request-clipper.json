@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Github Pull Request",
+	"behavior": "create",
+	"noteContentFormat": "# Notes\nXXX\n\n# Description\n{{selectorHtml:.comment-body | first | remove_html:(\"img,hr\") | markdown}}\n\n\n",
+	"properties": [
+		{
+			"name": "title",
+			"value": "{{selector:.js-issue-title|first}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "author",
+			"value": "[[github:{{meta:property:og:author:username}}]]",
+			"type": "multitext"
+		},
+		{
+			"name": "published",
+			"value": "{{selector:.timeline-comment-group relative-time | first}}",
+			"type": "date"
+		},
+		{
+			"name": "created",
+			"value": "{{date}}",
+			"type": "date"
+		},
+		{
+			"name": "tags",
+			"value": "pull-request",
+			"type": "multitext"
+		},
+		{
+			"name": "repository",
+			"value": "[[github:{{meta:name:octolytics-dimension-repository_nwo}}]]",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/github\\.com\\/[^\\/]+\\/[^\\/]+\\/pull\\/\\d+/"
+	],
+	"noteNameFormat": "{{meta:name:octolytics-dimension-repository_nwo|replace:\"/\":\" \"}} {{selector:.gh-header-title .f1-light}} - {{selector:.js-issue-title|first}}",
+	"path": "Clippings"
+}

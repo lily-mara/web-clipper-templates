@@ -1,0 +1,28 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Google Cloud Logs Query",
+	"behavior": "create",
+	"noteContentFormat": "# Notes\n- XXX\n# Query\n```sql\n{{selectorHtml:.logs-analytics-query-editor .view-lines .view-line|join:\"\\n\"|strip_tags}}\n```\n# Results\n{{selectorHtml:.query-results-cfc-table table|remove_html:\".cfc-table-last-column,colgroup\"|remove_tags:(\"cfc-table-column-header,span,logs-truncated-text,logs-highlightable-text,div,thead,tbody\")|strip_attr|markdown}}",
+	"properties": [
+		{
+			"name": "run-at",
+			"value": "{{date}}",
+			"type": "text"
+		},
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "log-query",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://console.cloud.google.com/logs/analytics"
+	],
+	"noteNameFormat": "Log Query {{date}}",
+	"path": "References"
+}
